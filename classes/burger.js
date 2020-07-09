@@ -22,6 +22,9 @@ class Burger {
     set devoured(devoured){
         this._burger.devoured = devoured;
     }
+    merge(new_burger){
+        this._burger = {...this._burger, ...new_burger};
+    }
 
     async getLiteral() {
         return this._burger;
@@ -32,11 +35,11 @@ class Burger {
     }
 
     async insert(){
-        const results = await burgerModel.insertOne('burgers', 'burger_name', this._burger);
+        const results = await burgerModel.insertOne(this._burger);
         this._burger.id = results.insertId;
     }
     async update(burgerId){
-        await burgerModel.updateOne('burgers', burgerId, this._burger);
+        await burgerModel.updateOne(burgerId, this._burger);
     }
 }
 module.exports = Burger;
