@@ -1,4 +1,5 @@
 const express = require("express");
+const exphbs = require("express-handlebars");
 const cors = require('cors');
 const bodyParser = require("body-parser");
 const routes = require("./routes");
@@ -9,6 +10,10 @@ const PORT = 8080;
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 routes.route(app);
 
