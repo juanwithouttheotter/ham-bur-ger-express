@@ -4,7 +4,11 @@ exports.read = async (req, res) => {
     const burger = new Burger();
     await burger.selectAll();
     const burgers = await burger.getLiteral();
-    res.json(burgers);
+    const hbsObject = {
+        hamburgers: burgers
+    };
+    console.log(burgers);
+    res.render("index", burgers);
 }
 exports.create = async (req, res) => {
     const burger = new Burger(req.body);
