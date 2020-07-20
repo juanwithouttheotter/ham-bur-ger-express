@@ -20,7 +20,7 @@ $( () => {
 
         const newBurger = {
             burger_name: $("#bur-ger").val().trim(),
-            devoured: false
+            devoured: "0"
         };
          
         $.ajax("/burgers", {
