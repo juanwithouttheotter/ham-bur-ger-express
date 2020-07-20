@@ -1,20 +1,39 @@
-  .li {
+  .burger-style {
     padding: 5px;
-    margin: 5px;
-    background: #faebd7;
+    margin: 10px;
+    background: #a3e2b8;
+    text-align: center;
   }
   
-  .label {
+  label {
     font-weight: bold;
   }
   
-  .create-update-form {
+  .create-form {
     padding: 5px;
     margin: 5px;
-    background: aqua;
+    background: rgb(97, 205, 224);
+    text-align: center;
   }
   
   .form-group {
     margin-bottom: 5px;
   }
-  
+  .righty{
+    width: 33.3%;
+    float: right;
+  }
+  .lefty{
+    width: 33.3%;
+    float: left;
+  }
+  .centery{
+    display: inline-block;
+  }
+  h1,h2{
+    text-align: center;
+  }
+  .title{
+    width: 100%;
+    margin-bottom: 5px;
+  }
