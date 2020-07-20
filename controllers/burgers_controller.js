@@ -5,9 +5,8 @@ exports.read = async (req, res) => {
     await burger.selectAll();
     const burgers = await burger.getLiteral();
     const hbsObject = {
-        burgers:burgers
+        burgers: burgers
     };
-    console.log(hbsObject)
     res.render("index", hbsObject);
 }
 exports.create = async (req, res) => {
@@ -23,4 +22,10 @@ exports.update = async (req, res) => {
     await burger.update(burgerId);
     const burgers = await burger.getLiteral();
     res.json(burgers);
+}
+exports.delete = async (req, res) => {
+    const burgerId = req.params.id;
+    const burger = new Burger();
+    await burger.delete(burgerId);
+    res.json({ deleted: true });
 }

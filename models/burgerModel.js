@@ -16,5 +16,10 @@ exports.updateOne = async (burgerId, burger_obj) => {
     const [data] = await connection.query(`UPDATE burgers SET ? WHERE (id = ?)`, [burger_obj, burgerId]);
     return data;
 }
+exports.deleteOne = async (burgerId) => {
+    const connection = await mysql.connect();
+    const [data] = await connection.query(`DELETE FROM burgers WHERE id = ?`, burgerId);
+    return data;
+}
 
 

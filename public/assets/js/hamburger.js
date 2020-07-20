@@ -1,10 +1,8 @@
 
-$( () => {
+$(() => {
     $('.change-devour-status').on("click", (btn) => {
         const id = $(btn.target).attr("data-id");
         const newStatus = $(btn.target).data("devoured");
-        console.log(id);
-        console.log(newStatus);
         const newDevourStatus = {
             devoured: newStatus
         };
@@ -12,8 +10,7 @@ $( () => {
         $.ajax(`/burgers/${id}`, {
             type: "PUT",
             data: newDevourStatus
-        }).then( () => {
-            console.log('changed status to', newStatus);
+        }).then(() => {
             location.reload();
         });
     });
@@ -24,15 +21,20 @@ $( () => {
             burger_name: $("#bur-ger").val().trim(),
             devoured: "0"
         };
-         
+
         $.ajax("/burgers", {
             type: "POST",
             data: newBurger
-        }).then( () => {
-            console.log("Fresh off the grill!");
+        }).then(() => {
             location.reload();
         });
     });
-
-
+    $(".delete").on("click", (btn) => {
+        const id = $(btn.target).attr("data-id");
+        $.ajax(`/burgers/${id}`, {
+            type: "DELETE"
+        }).then(() => {
+            location.reload();
+        });
+    });
 });
