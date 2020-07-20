@@ -5,10 +5,10 @@ exports.read = async (req, res) => {
     await burger.selectAll();
     const burgers = await burger.getLiteral();
     const hbsObject = {
-        hamburgers: burgers
+        burgers:burgers
     };
-    console.log(burgers);
-    res.render("index", burgers);
+    console.log(hbsObject)
+    res.render("index", hbsObject);
 }
 exports.create = async (req, res) => {
     const burger = new Burger(req.body);
